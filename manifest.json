@@ -1,0 +1,41 @@
+{
+  "manifest_version": 2,
+  "name": "DistBlock - Time-Based Website Blocker",
+  "version": "1.0.0",
+  "description": "Block distracting websites during specific times of the day with beautiful Material Design 3 Expressive UI",
+  
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png"
+  },
+
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "tabs",
+    "<all_urls>"
+  ],
+
+  "background": {
+    "scripts": ["scripts/storage.js", "scripts/time-utils.js", "background.js"]
+  },
+
+  "browser_action": {
+    "default_icon": {
+      "48": "icons/icon-48.png",
+      "96": "icons/icon-96.png"
+    },
+    "default_title": "DistBlock",
+    "default_popup": "popup/popup.html"
+  },
+
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+
+  "web_accessible_resources": [
+    "blocked/blocked.html"
+  ]
+}
