@@ -130,7 +130,6 @@ MIT License - Feel free to use and modify as needed.
 
 ## 🎯 Roadmap
 
-- [ ] Chrome/Edge support (Manifest V3)
 - [ ] Sync settings across devices
 - [ ] Statistics and productivity insights
 - [ ] Break reminders
