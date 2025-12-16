@@ -1,4 +1,5 @@
-# DistBlock - Time-Based Website Blocker
+# DistBlock - Time-Based Website Blocker 
+# TS still a WIP (trying to weebify the ui)
 
 A beautiful Firefox extension that helps you stay focused by blocking distracting websites during specific times of the day. Built with **Material Design 3 Expressive** for a stunning, modern interface.
 
