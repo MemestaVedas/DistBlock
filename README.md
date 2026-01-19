@@ -143,6 +143,38 @@ MIT License - Feel free to use and modify as needed.
 - Export your settings regularly as a backup
 - Use the countdown timer to plan your breaks
 
+### 🧠 Advanced Usage: Regex Blocking
+
+DistBlock supports powerful **Regular Expressions (Regex)** for precise blocking. This is perfect for blocking specific parts of a website while keeping the rest accessible.
+
+**How to use:**
+Wrap your pattern in forward slashes `/.../` or use start/end anchors `^...$`.
+
+**Examples:**
+
+1.  **Block YouTube Shorts only (keep normal videos):**
+    ```
+    /youtube\.com\/shorts/
+    ```
+
+2.  **Block Facebook/Instagram Reels:**
+    ```
+    /instagram\.com\/reels/
+    /facebook\.com\/reel/
+    ```
+
+3.  **Block specific distracting subreddits:**
+    ```
+    /reddit\.com\/r\/memes/
+    ```
+
+4.  **Block anything containing the word "game":**
+    ```
+    /game/
+    ```
+
+**Note:** Regex matching is case-sensitive by default unless specified otherwise in your pattern. Invalid regex patterns will be ignored safely.
+
 ---
 
 **Stay focused. Stay productive. DistBlock.**

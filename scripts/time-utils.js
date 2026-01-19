@@ -62,11 +62,39 @@ async function shouldBlockUrl(url, schedules) {
     return false;
 }
 
-// Check if URL matches a pattern (supports wildcards)
+// Check if URL matches a pattern (supports wildcards and regex)
 function urlMatchesPattern(url, pattern) {
     try {
         const urlObj = new URL(url);
+        const fullUrl = urlObj.href;
         const hostname = urlObj.hostname;
+
+        // Regex Support
+        // Case 1: Pattern is wrapped in slashes like /pattern/
+        if (pattern.startsWith('/') && pattern.endsWith('/')) {
+            try {
+                // Extract pattern without slashes
+                const regexBody = pattern.slice(1, -1);
+                const regex = new RegExp(regexBody);
+                return regex.test(fullUrl) || regex.test(hostname);
+            } catch (e) {
+                console.error("Invalid Regex in pattern:", pattern);
+                return false;
+            }
+        }
+
+        // Case 2: Pattern looks like a regex anchor string ^...$
+        if (pattern.startsWith('^') && pattern.endsWith('$')) {
+            try {
+                const regex = new RegExp(pattern);
+                return regex.test(fullUrl) || regex.test(hostname);
+            } catch (e) {
+                console.error("Invalid Regex anchor:", pattern);
+                return false;
+            }
+        }
+
+        /* --- Existing Logic for Standard Patterns --- */
 
         // Remove protocol and www
         const cleanPattern = pattern.replace(/^(https?:\/\/)?(www\.)?/, '');
